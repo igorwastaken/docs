@@ -39,7 +39,8 @@
       "group": "Get Started",
       "pages": [
         "introduction",
-        "installation"
+        "installation",
+        "creating-application"
       ]
     },
     {
