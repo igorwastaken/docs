@@ -1,86 +1,78 @@
 ---
-title: 'Quickstart'
-description: 'Start building awesome documentation in under 5 minutes'
+title: 'Installation'
+description: 'Setup your Discord bot in 30 seconds!'
 ---
 
-## Setup your development
+## Using the CLI (for TypeScript)
 
-Learn how to update your docs locally and and deploy them to the public.
+We've simplified bot creation with a single command. Follow these steps to install:
 
-### Edit and preview
+1. Install the CLI globally:
+    ```bash
+    npm install -g @oncordjs/generate
+    ```
 
-<AccordionGroup>
-  <Accordion icon="github" title="Clone your docs locally">
-    During the onboarding process, we created a repository on your Github with
-    your docs content. You can find this repository on our
-    [dashboard](https://dashboard.mintlify.com). To clone the repository
-    locally, follow these
-    [instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
-    in your terminal.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Preview changes">
-    Previewing helps you make sure your changes look as intended. We built a
-    command line interface to render these changes locally. 1. Install the
-    [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the
-    documentation changes locally with this command: ``` npm i -g mintlify ```
-    2. Run the following command at the root of your documentation (where
-    `mint.json` is): ``` mintlify dev ```
-  </Accordion>
-</AccordionGroup>
+2. Create a new project:
+    ```bash
+    create-oncord-project my-project-name
+    ```
 
-### Deploy your changes
+This will generate a new directory called `my-project-name` with the necessary files and structure for your Oncord bot.
 
-<AccordionGroup>
+3. Navigate to your project directory:
+    ```bash
+    cd my-project-name
+    ```
 
-<Accordion icon="message-bot" title="Install our Github app">
-  Our Github app automatically deploys your changes to your docs site, so you
-  don't need to manage deployments yourself. You can find the link to install on
-  your [dashboard](https://dashboard.mintlify.com). Once the bot has been
-  successfully installed, there should be a check mark next to the commit hash
-  of the repo.
-</Accordion>
-<Accordion icon="rocket" title="Push your changes">
-  [Commit and push your changes to
-  Git](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository#about-git-push)
-  for your changes to update in your docs site. If you push and don't see that
-  the Github app successfully deployed your changes, you can also manually
-  update your docs through our [dashboard](https://dashboard.mintlify.com).
-</Accordion>
+Your project is now set up and ready for development. Follow the steps in the documentation to start building your Discord bot with `@oncordjs/client`.
 
-</AccordionGroup>
+## Using JavaScript
 
-## Update your docs
+Creating a bot in JavaScript is also straightforward.
 
-Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
+1. Set up your project environment:
+    ```bash
+    mkdir my-project-name
+    cd my-project-name
+    npm init -y
+    ```
 
-<CardGroup>
+This will create a new folder called `my-project-name`.
 
-<Card title="Style Your Docs" icon="paintbrush" href="/settings/global">
-  Add flair to your docs with personalized branding.
-</Card>
+2. Create an `index.js` file:
+    ```bash
+    touch index.js
+    ```
 
-<Card
-  title="Add API Endpoints"
-  icon="square-code"
-  href="/api-playground/configuration"
->
-  Implement your OpenAPI spec and enable API user interaction.
-</Card>
+You can use IDEs like [Visual Studio Code](https://vscode.dev/) to edit the file.
 
-<Card
-  title="Integrate Analytics"
-  icon="chart-mixed"
-  href="/analytics/supported-integrations"
->
-  Draw insights from user interactions with your documentation.
-</Card>
+3. Add the following code to `index.js`:
+    ```js
+    const { Gateway } = require('@oncordjs/client');
 
-<Card
-  title="Host on a Custom Domain"
-  icon="browser"
-  href="/settings/custom-domain/subdomain"
->
-  Keep your docs on your own website's subdomain.
-</Card>
+    const client = new Gateway({
+        token: 'YOUR_BOT_TOKEN',
+        intents: ['Guilds']
+    });
 
-</CardGroup>
+    client.handleCommands(__dirname + '/commands', '.js');
+
+    client.login();
+    ```
+
+4. Create a folder for your commands:
+    ```bash
+    mkdir -p commands/util
+    ```
+
+Your project structure should look like this:
+```
+my-project-name/
+├── index.js
+├── commands/
+│   └── util/
+│       └── ping.js
+└── package.json
+```
+
+Your JavaScript bot setup is now complete. Refer to the documentation for further instructions on building and customizing your bot.
