@@ -30,7 +30,7 @@
   "anchors": [
     {
       "name": "GitHub",
-      "icon": "discord",
+      "icon": "github",
       "url": "https://github.com/oncord-me"
     },
     {
