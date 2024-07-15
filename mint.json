@@ -18,7 +18,7 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "https://GitHub.com/oncord-me"
+      "url": "https://github.com/oncord-me"
     }
   ],
   "tabs": [
@@ -65,6 +65,7 @@
     }
   ],
   "footerSocials": {
-    "github": "https://github.com/oncord-me"
+    "github": "https://github.com/oncord-me",
+    "discord": "https://discord.com/invite/4Wp4MK4eQJ"
   }
 }
